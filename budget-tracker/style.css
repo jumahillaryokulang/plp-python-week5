@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  color: #23332d;
+  background: #f3f7f4;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+.page-header,
+main {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  color: white;
+  background: #1f6b55;
+  border-radius: 12px;
+}
+
+.brand-icon {
+  flex: 0 0 auto;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+.page-header h1 {
+  margin-bottom: 0.25rem;
+}
+
+.page-header p {
+  margin-bottom: 0;
+}
+
+.add-expense-section,
+.expenses-section,
+.how-to,
+.video-section {
+  margin-bottom: 1.25rem;
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid #d5e2da;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgb(26 64 46 / 6%);
+}
+
+.add-expense-section {
+  border-top: 5px solid #e6ad35;
+}
+
+.add-expense-section form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+input:not([type="submit"]),
+select {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.6rem;
+  border: 1px solid #aebfb4;
+  border-radius: 6px;
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid #9ed5bd;
+  border-color: #1f6b55;
+}
+
+.add-expense-section form > button {
+  min-height: 42px;
+  padding: 0.6rem 1rem;
+  color: white;
+  background: #1f6b55;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-expense-section form > button:hover {
+  background: #164d3d;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.expenses-section table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.expenses-section th,
+.expenses-section td {
+  padding: 0.75rem;
+  border: 1px solid #d5e2da;
+}
+
+.expenses-section thead {
+  color: white;
+  background: #1f6b55;
+}
+
+.expenses-section tbody tr:nth-child(even) {
+  background: #eef5f0;
+}
+
+.expenses-section tbody tr:hover {
+  background: #dcefe4;
+}
+
+.how-to summary {
+  color: #1f6b55;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.how-to p {
+  margin: 0.75rem 0 0;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  .page-header,
+  .add-expense-section,
+  .expenses-section,
+  .how-to,
+  .video-section {
+    padding: 1rem;
+  }
+}
