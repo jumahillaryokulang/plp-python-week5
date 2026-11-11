@@ -1,35 +1,58 @@
+/* Google Fonts: a confident display face for headings and a highly readable body face. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+  --ink: #19352d;
+  --muted: #647a70;
+  --green: #176b52;
+  --green-dark: #10513e;
+  --mint: #eaf4ee;
+  --mint-strong: #d7eadf;
+  --gold: #e7b44b;
+  --line: #d6e3db;
+  --paper: #ffffff;
+  --canvas: #f2f6f2;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  padding: 2rem 1rem;
-  color: #23332d;
-  background: #f3f7f4;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  padding: clamp(1.25rem, 4vw, 3.5rem) 1rem;
+  color: var(--ink);
+  background: var(--canvas);
+  font-family: 'DM Sans', Arial, sans-serif;
+  line-height: 1.65;
 }
 
 .page-header,
 main {
-  width: min(100%, 900px);
+  width: min(100%, 940px);
   margin: 0 auto;
 }
 
 .page-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   margin-bottom: 1.5rem;
-  padding: 1.5rem;
-  color: white;
-  background: #1f6b55;
-  border-radius: 12px;
+  padding: clamp(1.4rem, 4vw, 2.25rem);
+  color: var(--paper);
+  background: linear-gradient(125deg, var(--green-dark), var(--green));
+  border: 1px solid rgb(16 81 62 / 20%);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgb(25 53 45 / 12%);
 }
 
 .brand-icon {
   flex: 0 0 auto;
+  padding: 0.5rem;
+  background: rgb(255 255 255 / 14%);
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 16px;
 }
 
 h1,
@@ -38,33 +61,51 @@ p {
   margin-top: 0;
 }
 
+h1,
+h2 {
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+  line-height: 1.2;
+}
+
 .page-header h1 {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 .page-header p {
   margin-bottom: 0;
+  color: #e1efe7;
 }
 
 .add-expense-section,
 .expenses-section,
 .how-to,
 .video-section {
-  margin-bottom: 1.25rem;
-  padding: 1.5rem;
-  background: white;
-  border: 1px solid #d5e2da;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgb(26 64 46 / 6%);
+  margin-bottom: 1.35rem;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgb(25 53 45 / 6%);
 }
 
 .add-expense-section {
-  border-top: 5px solid #e6ad35;
+  border-top: 5px solid var(--gold);
+}
+
+main h2 {
+  margin-bottom: 1.1rem;
+  color: var(--green-dark);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
 
 .add-expense-section form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   gap: 1rem;
   align-items: end;
 }
@@ -72,43 +113,70 @@ p {
 .form-field {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.4rem;
 }
 
-input:not([type="submit"]),
+.form-field label {
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input:not([type='submit']),
 select {
   width: 100%;
-  min-height: 42px;
-  padding: 0.6rem;
-  border: 1px solid #aebfb4;
-  border-radius: 6px;
+  min-height: 46px;
+  padding: 0.65rem 0.8rem;
+  color: var(--ink);
+  background: #fcfdfc;
+  border: 1px solid #c6d6cc;
+  border-radius: 9px;
   font: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+input::placeholder {
+  color: #8a9b91;
 }
 
 input:focus,
 select:focus {
-  outline: 3px solid #9ed5bd;
-  border-color: #1f6b55;
+  outline: none;
+  background: var(--paper);
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgb(23 107 82 / 13%);
 }
 
 .add-expense-section form > button {
-  min-height: 42px;
-  padding: 0.6rem 1rem;
-  color: white;
-  background: #1f6b55;
-  border: 0;
-  border-radius: 6px;
+  min-height: 46px;
+  padding: 0.65rem 1.15rem;
+  color: var(--paper);
+  background: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 9px;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgb(23 107 82 / 16%);
+  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
 .add-expense-section form > button:hover {
-  background: #164d3d;
+  background: var(--green-dark);
+  box-shadow: 0 6px 14px rgb(23 107 82 / 22%);
+  transform: translateY(-1px);
+}
+
+.add-expense-section form > button:focus-visible,
+.how-to summary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
 }
 
 .table-wrapper {
   overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
 
 .expenses-section table {
@@ -119,44 +187,65 @@ select:focus {
 
 .expenses-section th,
 .expenses-section td {
-  padding: 0.75rem;
-  border: 1px solid #d5e2da;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--line);
 }
 
-.expenses-section thead {
-  color: white;
-  background: #1f6b55;
+.expenses-section th {
+  color: var(--paper);
+  background: var(--green);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
 }
 
 .expenses-section tbody tr:nth-child(even) {
-  background: #eef5f0;
+  background: var(--mint);
 }
 
 .expenses-section tbody tr:hover {
-  background: #dcefe4;
+  background: var(--mint-strong);
+}
+
+.expenses-section tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.how-to {
+  background: #fffaf0;
+  border-color: #f0dfb8;
 }
 
 .how-to summary {
-  color: #1f6b55;
+  color: var(--green-dark);
   font-weight: 700;
   cursor: pointer;
 }
 
 .how-to p {
   margin: 0.75rem 0 0;
+  color: var(--muted);
+}
+
+.video-section h2 {
+  margin-bottom: 1rem;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--mint);
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
 
 .video-wrapper iframe {
   width: 100%;
   height: 100%;
   border: 0;
-  border-radius: 8px;
 }
 
 @media (max-width: 520px) {
@@ -164,11 +253,18 @@ select:focus {
     padding: 1rem 0.75rem;
   }
 
-  .page-header,
-  .add-expense-section,
-  .expenses-section,
-  .how-to,
-  .video-section {
-    padding: 1rem;
+  .page-header {
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .brand-icon {
+    width: 52px;
+  }
+
+  .expenses-section th,
+  .expenses-section td {
+    padding: 0.7rem;
+    white-space: nowrap;
   }
 }
